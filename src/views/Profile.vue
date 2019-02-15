@@ -24,6 +24,7 @@
 
 <script>
 import axios from 'axios';
+import url from '@/service.config.js'
 export default{
 data() {
     return {
@@ -36,7 +37,18 @@ data() {
 },
 methods:{
 registHander(){
-    axios().then().catch()
+    axios({
+        url:'url.registUser',
+        method:'post',
+        data:{
+            username:this.registerUsername,
+            password:this.registerPassword
+        }
+    }).then(res=>{
+
+    }).catch(err=>{
+
+    })
 }
 }
 }
