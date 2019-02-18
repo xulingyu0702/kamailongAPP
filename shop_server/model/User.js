@@ -3,9 +3,9 @@ const Schema =mongoose.Schema;
 
 const userSchema =new Schema({
     userId:Schema.Types.ObjectId,
-    userName:{unique:true,type:String},
+    userName:{ unique : true, type:String},
     password:String,
     createDate:{type:Date,default:Date.now()}
 })
 
-mongoose.model('user',userSchema)
+mongoose.model('User',userSchema)

@@ -38,19 +38,27 @@ data() {
 methods:{
 registHander(){
     axios({
-        url:'url.registUser',
+        url:url.registUser,
         method:'post',
         data:{
-            username:this.registerUsername,
+            userName:this.registerUsername,
             password:this.registerPassword
         }
     }).then(res=>{
-
+      if(res.data.code == 200){
+          this.$toast.success('注册成功')
+      }else{
+         this.$toast.fails('注册失败')
+      }
     }).catch(err=>{
+      console.log(err);
+     this.$toastfail('注册失败');
+
 
     })
 }
 }
 }
+
 
 </script>
