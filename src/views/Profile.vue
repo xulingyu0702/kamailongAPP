@@ -6,7 +6,7 @@
   <van-field  required   clearable type="password" v-model="loginPassword" placeholder="请输入密码" label="密码"/>
 </van-cell-group>
 <div>
-    <van-button type="primary" size="large">登录</van-button>
+    <van-button type="primary" size="large" @click="loginHander">登录</van-button>
 </div>
 
     </van-tab>
@@ -52,9 +52,24 @@ registHander(){
       }
     }).catch(err=>{
       console.log(err);
-     this.$toastfail('注册失败');
+     this.$toast.fail('注册失败');
 
 
+    })
+},
+
+loginHander(){
+    axios({
+        url:url.loginUser,
+        method:'post',
+        data:{
+            userName:this.loginUsername,
+            password:this.loginPassword,
+        }
+    }).then(res=>{
+console.log('成功')
+    }).catch(err=>{
+console.log('失败') 
     })
 }
 }

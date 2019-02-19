@@ -3,7 +3,7 @@ const app = new Koa();
 //解决跨域
 const cors=require('koa2-cors');
 app.use(cors({
-    origin:['http://localhost:8080'],
+    origin:['http://localhost:8081'],
     credentials:true
 }));
 //接收post请求
